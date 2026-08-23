@@ -112,7 +112,8 @@ img{max-width:100%;display:block}
     repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 26px);
   clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);
 }
-.hero-inner{position:relative;z-index:2;padding:110px 0 120px;max-width:660px}
+.hero-wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:96px 0 110px}
+.hero-inner{max-width:660px}
 .hero-kicker{
   display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px;
   letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;
@@ -125,6 +126,41 @@ h1{
 h1 span{color:var(--orange)}
 .hero-sub{font-size:19.5px;color:#C7D5E3;max-width:540px;margin-bottom:38px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+/* system control panel */
+.sys-panel{
+  background:rgba(8,28,49,.72);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--radius);padding:26px 24px 20px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 30px 70px rgba(0,0,0,.4);max-width:420px;justify-self:end;width:100%;
+}
+.sys-head{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9FB3C8;
+}
+.sys-head .live{display:inline-flex;align-items:center;gap:7px;color:#4ADE80}
+.sys-head .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 9px #4ADE80;animation:blink 2.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.sys-row{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  border:1px solid rgba(255,255,255,.12);border-radius:9px;
+  padding:13px 15px;background:rgba(255,255,255,.03);
+}
+.sys-row + .sys-row{margin-top:10px}
+.sys-txt{display:flex;flex-direction:column;gap:2px}
+.sys-txt .lbl{font-weight:600;font-size:15px;color:#fff}
+.sys-txt .dsc{font-size:12.5px;color:#8CA3B8}
+.sys-toggle{
+  flex:0 0 auto;width:46px;height:38px;border-radius:8px;cursor:pointer;
+  border:1.5px solid rgba(255,255,255,.22);background:transparent;color:#7D93A8;
+  display:grid;place-items:center;transition:all .2s;
+}
+.sys-toggle svg{width:18px;height:18px}
+.sys-toggle .ic-on{display:none}
+.sys-row.on .sys-toggle{border-color:var(--orange);color:var(--orange);background:rgba(242,106,33,.12)}
+.sys-row.on .sys-toggle .ic-on{display:block}
+.sys-row.on .sys-toggle .ic-off{display:none}
+.sys-row:not(.on) .sys-txt .lbl{color:#A9BCCD}
+.sys-note{margin-top:14px;font-size:12px;color:#7D93A8;text-align:center}
 .hero-strip{
   position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.14);
   background:rgba(8,28,49,.5);backdrop-filter:blur(6px);
@@ -336,6 +372,8 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:64px 0 0}
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:980px){
+  .hero-wrap{grid-template-columns:1fr;gap:44px}
+  .sys-panel{justify-self:start;max-width:460px}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
   .owner-cards{left:0}
   .trust-grid{grid-template-columns:1fr 1fr;gap:30px 14px}
@@ -356,7 +394,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:64px 0 0}
   .nav-links > a{padding:14px 24px}
   .nav-links .btn{margin:10px 24px}
   .menu-toggle{display:block}
-  .hero-inner{padding:78px 0 88px}
+  .hero-wrap{padding:70px 0 80px}
   .hero::after{display:none}
   .intro,.about,.process,.equip,.contact{padding:76px 0}
   .quote{padding:76px 0}
@@ -409,7 +447,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:64px 0 0}
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="container">
+  <div class="container hero-wrap">
     <div class="hero-inner">
       <span class="hero-kicker">Cameras · Cabling · MDF Buildouts</span>
       <h1>Security infrastructure <span>built to spec.</span></h1>
@@ -418,6 +456,44 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:64px 0 0}
         <a href="#services" class="btn btn-orange">Our Services</a>
         <a href="#contact" class="btn btn-outline-light">Get a Quote</a>
       </div>
+    </div>
+
+    <div class="sys-panel">
+      <div class="sys-head">
+        <span>Your System, Your Control</span>
+        <span class="live">Online</span>
+      </div>
+      <div class="sys-row on" data-on="Recording Live" data-off="Recording Off">
+        <div class="sys-txt">
+          <span class="lbl">Recording Live</span>
+          <span class="dsc">24/7 footage retained on your NVR</span>
+        </div>
+        <button class="sys-toggle" type="button" aria-pressed="true" aria-label="Toggle recording">
+          <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="13" height="10" rx="2"/><path d="M15 10l7-3v10l-7-3"/></svg>
+          <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="13" height="10" rx="2"/><path d="M15 10l7-3v10l-7-3"/><path d="M3 3l18 18"/></svg>
+        </button>
+      </div>
+      <div class="sys-row on" data-on="Remote Access" data-off="On-Site Only">
+        <div class="sys-txt">
+          <span class="lbl">Remote Access</span>
+          <span class="dsc">View every camera from your phone</span>
+        </div>
+        <button class="sys-toggle" type="button" aria-pressed="true" aria-label="Toggle remote access">
+          <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2M3 3l18 18"/></svg>
+        </button>
+      </div>
+      <div class="sys-row" data-on="Motion Alerts" data-off="Alerts Muted">
+        <div class="sys-txt">
+          <span class="lbl">Alerts Muted</span>
+          <span class="dsc">Instant notifications on activity</span>
+        </div>
+        <button class="sys-toggle" type="button" aria-pressed="false" aria-label="Toggle motion alerts">
+          <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
+          <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.7 3A6 6 0 0118 8c0 4.5 1.2 6.9 2 8M6.3 6.3C6.1 6.8 6 7.4 6 8c0 7-3 9-3 9h14"/><path d="M13.7 21a2 2 0 01-3.4 0M3 3l18 18"/></svg>
+        </button>
+      </div>
+      <p class="sys-note">Every install configured to your spec at handoff.</p>
     </div>
   </div>
   <div class="hero-strip">
@@ -649,6 +725,16 @@ document.querySelectorAll('#navLinks a').forEach(a=>{
   a.addEventListener('click',()=>{
     document.getElementById('navLinks').classList.remove('open');
     document.querySelector('.menu-toggle').setAttribute('aria-expanded','false');
+  });
+});
+
+document.querySelectorAll('.sys-row').forEach(row=>{
+  const btn = row.querySelector('.sys-toggle');
+  const lbl = row.querySelector('.lbl');
+  btn.addEventListener('click',()=>{
+    const on = row.classList.toggle('on');
+    btn.setAttribute('aria-pressed', on);
+    lbl.textContent = on ? row.dataset.on : row.dataset.off;
   });
 });
 

@@ -37,17 +37,6 @@ img{max-width:100%;display:block}
 :focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:4px}
 .display{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.015em}
 
-/* ---------- TOP BAR ---------- */
-.topbar{background:var(--navy-deep);color:#fff;font-size:14px}
-.topbar-inner{
-  max-width:var(--maxw);margin:0 auto;padding:9px 24px;
-  display:flex;justify-content:flex-end;align-items:center;gap:24px;
-}
-.topbar a{display:inline-flex;align-items:center;gap:8px;font-weight:600}
-.topbar a:hover{color:var(--orange)}
-.topbar svg{width:15px;height:15px}
-.topbar .area{color:#9FB3C8;font-weight:500}
-
 /* ---------- NAV ---------- */
 .nav{
   position:sticky;top:0;z-index:100;background:#fff;
@@ -74,6 +63,9 @@ img{max-width:100%;display:block}
 .nav-links{display:flex;gap:32px;align-items:center}
 .nav-links > a{font-weight:600;font-size:15.5px;color:var(--text);transition:color .2s}
 .nav-links > a:hover{color:var(--orange)}
+.nav-phone{display:inline-flex!important;align-items:center;gap:8px;font-weight:700!important;color:var(--navy)!important}
+.nav-phone svg{width:16px;height:16px;stroke:var(--orange)}
+.nav-phone:hover{color:var(--orange)!important}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   font-weight:700;font-size:15.5px;padding:14px 28px;border-radius:8px;
@@ -350,8 +342,6 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
 }
 @media(max-width:700px){
   body{font-size:16px}
-  .topbar-inner{justify-content:center}
-  .topbar .area{display:none}
   .nav-links{
     display:none;position:absolute;top:76px;left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
@@ -381,17 +371,6 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <span class="area">Serving Commercial Properties Across Virginia</span>
-    <a href="tel:+15402201032">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg>
-      (540) 220-1032
-    </a>
-  </div>
-</div>
-
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
@@ -408,6 +387,10 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <a href="#services">Services</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
+      <a href="tel:+15402201032" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg>
+        (540) 220-1032
+      </a>
       <a href="#contact" class="btn btn-orange btn-nav">Get a Quote</a>
     </div>
   </div>

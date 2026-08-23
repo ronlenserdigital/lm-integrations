@@ -12,8 +12,9 @@
 :root{
   --navy:#0E2A47;
   --navy-deep:#081C31;
-  --orange:#F26A21;
-  --orange-dark:#D8560F;
+  --orange:#018DDA;
+  --orange-dark:#0072B5;
+  --green:#89C93E;
   --bg:#FFFFFF;
   --bg-soft:#F3F6FA;
   --text:#1C2836;
@@ -41,17 +42,11 @@ img{max-width:100%;display:block}
 .nav2{position:absolute;top:0;left:0;right:0;z-index:30;padding:20px 0}
 .nav2-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:11px}
-.brand-mark{
-  width:42px;height:42px;border-radius:10px;flex:0 0 auto;position:relative;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  display:grid;place-items:center;
+.brand-logo{
+  width:46px;height:46px;flex:0 0 auto;border-radius:10px;
+  background:#fff;padding:4px;object-fit:contain;
+  border:1px solid rgba(255,255,255,.25);
 }
-.brand-mark::after{
-  content:"";position:absolute;right:-3px;bottom:-3px;width:12px;height:12px;
-  background:var(--orange);border-radius:3px;
-}
-.brand-mark span{font-family:'Barlow Condensed',sans-serif;font-weight:800;color:#fff;font-size:18px;letter-spacing:.02em}
 .brand-text .name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;line-height:1.05;text-transform:uppercase;color:#fff}
 .brand-text .name b{color:var(--orange)}
 .brand-text .sub{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600}
@@ -96,7 +91,7 @@ img{max-width:100%;display:block}
   font-family:'Barlow',sans-serif;
 }
 .btn-orange{background:var(--orange);color:#fff}
-.btn-orange:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 10px 26px rgba(242,106,33,.35)}
+.btn-orange:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 10px 26px rgba(1,141,218,.35)}
 .btn-navy{background:var(--navy);color:#fff}
 .btn-navy:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 10px 26px rgba(14,42,71,.3)}
 .btn-pill{border-radius:100px;padding:15px 30px}
@@ -127,7 +122,7 @@ img{max-width:100%;display:block}
 .hero::after{
   content:"";position:absolute;inset:0;pointer-events:none;
   background:
-    radial-gradient(880px 400px at 50% 106%,rgba(242,106,33,.2),transparent 62%),
+    radial-gradient(880px 400px at 50% 106%,rgba(1,141,218,.22),transparent 62%),
     radial-gradient(ellipse 120% 100% at 50% 50%,transparent 55%,rgba(4,10,17,.55) 100%);
 }
 .hero-content{position:relative;z-index:10;text-align:center;max-width:880px;margin:0 auto;padding:158px 24px 0}
@@ -167,7 +162,7 @@ h1 span{color:var(--orange)}
   content:"";position:absolute;left:-19px;top:50%;transform:translateY(-50%);
   width:5px;height:5px;border-radius:50%;background:var(--orange);
 }
-.hero-chip svg{width:15px;height:15px;stroke:var(--orange);flex:0 0 auto}
+.hero-chip svg{width:15px;height:15px;stroke:var(--green);flex:0 0 auto}
 @keyframes fadeSlideIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .fs1{animation:fadeSlideIn .8s ease .1s both}
 .fs2{animation:fadeSlideIn .8s ease .25s both}
@@ -193,7 +188,7 @@ h2 em{font-style:normal;color:var(--orange)}
 .pill:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);box-shadow:0 8px 20px rgba(14,42,71,.1)}
 .pill.soon{border-style:dashed;color:var(--mute)}
 .pill.soon:hover{color:var(--mute);border-color:var(--mute);transform:none;box-shadow:none}
-.pill.soon i{font-style:normal;font-size:11px;letter-spacing:.08em;color:var(--orange);margin-left:7px;text-transform:uppercase;font-weight:700}
+.pill.soon i{font-style:normal;font-size:11px;letter-spacing:.08em;color:var(--green);margin-left:7px;text-transform:uppercase;font-weight:700}
 
 /* ---------- TRUST STRIP ---------- */
 .trust{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0}
@@ -216,7 +211,7 @@ h2 em{font-style:normal;color:var(--orange)}
 .about-photo{
   aspect-ratio:4/3.4;border-radius:var(--radius);overflow:hidden;position:relative;
   background:
-    radial-gradient(circle at 70% 25%,rgba(242,106,33,.35),transparent 55%),
+    radial-gradient(circle at 70% 25%,rgba(1,141,218,.35),transparent 55%),
     repeating-linear-gradient(0deg,#12314F 0 42px,#0E2A47 42px 84px);
   display:grid;place-items:center;
   box-shadow:22px 22px 0 var(--bg-soft),22px 22px 0 1px var(--line);
@@ -268,7 +263,7 @@ h2 em{font-style:normal;color:var(--orange)}
   width:58px;height:58px;margin:0 auto 22px;border-radius:50%;
   background:var(--orange);display:grid;place-items:center;
   font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;color:#fff;
-  box-shadow:0 0 0 8px rgba(242,106,33,.16);
+  box-shadow:0 0 0 8px rgba(1,141,218,.16);
 }
 .pstep h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:23px;margin-bottom:12px}
 .pstep p{color:#B7C7D8;font-size:15.5px}
@@ -355,7 +350,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   width:40px;height:40px;border-radius:9px;display:grid;place-items:center;
   border:1px solid rgba(255,255,255,.16);color:#9FB3C8;transition:all .2s;
 }
-.footer-social a:hover{color:#fff;border-color:var(--orange);background:rgba(242,106,33,.14);transform:translateY(-2px)}
+.footer-social a:hover{color:#fff;border-color:var(--orange);background:rgba(1,141,218,.14);transform:translateY(-2px)}
 .footer-social svg{width:18px;height:18px}
 .footer-col h4{
   font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#fff;
@@ -414,7 +409,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   <nav class="nav2">
     <div class="nav2-inner">
       <a href="#top" class="brand" aria-label="L&M Integrations home">
-        <span class="brand-mark" aria-hidden="true"><span>LM</span></span>
+        <img class="brand-logo" src="logo.png" alt="L&amp;M Integrations logo">
         <span class="brand-text">
           <span class="name">L&amp;M <b>Integrations</b></span>
           <span class="sub">Low Voltage Contractor</span>
@@ -578,13 +573,11 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <p>We install proven commercial-grade camera and network equipment, and we can work with your existing infrastructure or preferred manufacturers on request.</p>
     </div>
     <div class="equip-chips reveal d1">
-      <span class="chip">[BRAND 1]</span>
-      <span class="chip">[BRAND 2]</span>
-      <span class="chip">[BRAND 3]</span>
-      <span class="chip">[BRAND 4]</span>
-      <span class="chip">[BRAND 5]</span>
+      <span class="chip">Axis Communications</span>
+      <span class="chip">Turing AI</span>
+      <span class="chip">Verkada</span>
     </div>
-    <p class="equip-note">Confirm the camera, NVR, and switch brands you actually install before launch.</p>
+    <p class="equip-note">Working with other equipment or existing infrastructure? We can install and integrate on request.</p>
   </div>
 </section>
 
@@ -654,6 +647,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
+        <img class="brand-logo" src="logo.png" alt="" style="margin-bottom:16px">
         <div class="name">L&amp;M <b>Integrations</b></div>
         <p>Commercial low voltage contractor. IP camera systems, structured cabling, and MDF buildouts installed clean, tested, and documented across Virginia.</p>
         <div class="footer-social">

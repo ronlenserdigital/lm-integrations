@@ -273,14 +273,16 @@ h2 em{font-style:normal;color:var(--orange)}
 .equip{padding:110px 0;text-align:center}
 .equip h2{margin-bottom:16px}
 .equip > .container > p{max-width:660px;margin:0 auto 44px;color:var(--mute);font-size:17.5px}
-.equip-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:820px;margin:0 auto}
-.chip{
-  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--mute);
-  border:1.5px solid var(--line);border-radius:8px;padding:14px 30px;background:var(--bg-soft);
-  transition:all .2s;
+.equip-chips{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  column-gap:56px;row-gap:26px;max-width:900px;margin:0 auto;
 }
-.chip:hover{color:var(--navy);border-color:var(--navy)}
+.chip{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;letter-spacing:.08em;
+  text-transform:uppercase;color:#AEBBc9;opacity:.85;
+  transition:all .25s;cursor:default;
+}
+.chip:hover{color:var(--navy);opacity:1;transform:translateY(-2px)}
 .equip-note{margin-top:26px;font-size:13.5px;color:var(--mute)}
 
 /* ---------- QUOTE CTA ---------- */
@@ -574,9 +576,12 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <p>We install proven commercial-grade camera and network equipment, and we can work with your existing infrastructure or preferred manufacturers on request.</p>
     </div>
     <div class="equip-chips reveal d1">
-      <span class="chip">Axis Communications</span>
-      <span class="chip">Turing AI</span>
+      <span class="chip">Axis</span>
       <span class="chip">Verkada</span>
+      <span class="chip">Turing AI</span>
+      <span class="chip">Ubiquiti</span>
+      <span class="chip">Hanwha Vision</span>
+      <span class="chip">Bosch Security</span>
     </div>
     <p class="equip-note">Working with other equipment or existing infrastructure? We can install and integrate on request.</p>
   </div>

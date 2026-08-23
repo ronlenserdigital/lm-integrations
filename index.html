@@ -3,8 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L&M Integrations | Low Voltage & Security Camera Contractor — Virginia</title>
-<meta name="description" content="L&M Integrations installs commercial IP camera systems, structured cabling, PoE infrastructure, and MDF room buildouts across Virginia. Request a free site walk.">
+<title>L&M Integrations | Low Voltage & Security Camera Contractor in Virginia</title>
+<meta name="description" content="L&M Integrations installs commercial IP camera systems, camera drops, PoE cabling, and MDF room buildouts across Virginia. Every run tested and labeled. Call (540) 220-1032 for a free site walk.">
+<link rel="canonical" href="https://ronlenserdigital.github.io/lm-integrations/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="L&M Integrations | Low Voltage & Security Camera Contractor in Virginia">
+<meta property="og:description" content="Commercial IP camera systems, PoE cabling, and MDF room buildouts across Virginia. Free site walks.">
+<meta property="og:url" content="https://ronlenserdigital.github.io/lm-integrations/">
+<meta property="og:image" content="https://ronlenserdigital.github.io/lm-integrations/rack.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "L&M Integrations",
+  "description": "Commercial low voltage contractor installing IP camera systems, camera drops, PoE cabling, and MDF room buildouts.",
+  "telephone": "+1-540-220-1032",
+  "url": "https://ronlenserdigital.github.io/lm-integrations/",
+  "image": "https://ronlenserdigital.github.io/lm-integrations/rack.jpg",
+  "areaServed": {"@type": "State", "name": "Virginia"},
+  "priceRange": "$$",
+  "knowsAbout": ["CCTV installation","IP camera systems","structured cabling","PoE infrastructure","MDF buildouts","NVR configuration"]
+}
+</script>
+<script data-goatcounter="https://lmintegrations.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -412,6 +434,58 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   .about-slider{box-shadow:none}
   .footer-grid{grid-template-columns:1fr}
 }
+
+/* ---------- STICKY MOBILE CTA ---------- */
+.mcta{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+  gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(8,28,49,.96);border-top:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .3s;
+}
+.mcta.hidden{transform:translateY(110%)}
+.mcta a{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;font-size:15px;padding:13px 10px;border-radius:9px;
+}
+.mcta-call{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.mcta-call svg{width:16px;height:16px;stroke:var(--green)}
+.mcta-quote{background:var(--orange);color:#fff}
+
+/* ---------- COOKIE BANNER ---------- */
+.cookie-banner{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:95;
+  display:none;align-items:center;gap:16px;flex-wrap:wrap;
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:16px 20px;box-shadow:0 20px 50px rgba(14,42,71,.25);
+  max-width:520px;margin:0 auto;
+}
+.cookie-banner.show{display:flex}
+.cookie-banner p{font-size:13.5px;color:var(--mute);flex:1;min-width:220px}
+.cookie-banner a{color:var(--orange);text-decoration:underline}
+
+/* ---------- FORM STATES ---------- */
+.field input.err,.field textarea.err{border-color:#D64541;background:#FDF3F3}
+.field .field-msg{display:none;font-size:12.5px;color:#D64541;margin-top:6px;font-weight:600}
+.field.show-err .field-msg{display:block}
+.btn .spinner{
+  width:16px;height:16px;border:2.5px solid rgba(255,255,255,.35);
+  border-top-color:#fff;border-radius:50%;display:inline-block;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:700px){
+  .mcta{display:flex}
+  footer{padding-bottom:96px}
+}
+@media(max-width:400px){
+  h1{font-size:44px}
+  .hero-sub{font-size:16.5px}
+  .badge span{font-size:12.5px}
+  .btn-pill{padding:13px 22px;font-size:14.5px}
+  .container{padding:0 18px}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
@@ -534,7 +608,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <div class="about-slider" id="aboutSlider">
         <div class="slider-track" id="sliderTrack">
           <img src="rack.jpg" alt="Patch panel rack with labeled, combed cable runs installed by L&M Integrations">
-          <img src="switch.jpg" alt="Managed PoE switch installation with bundled and labeled cables">
+          <img src="switch.jpg" alt="Managed PoE switch installation with bundled and labeled cables" loading="lazy">
         </div>
         <button class="slider-btn prev" aria-label="Previous photo" onclick="slideTo(-1)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
@@ -592,10 +666,10 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <p>We install proven commercial-grade camera and network equipment, and we can work with your existing infrastructure or preferred manufacturers on request.</p>
     </div>
     <div class="equip-chips reveal d1">
-      <img class="equip-logo" src="axis.png" alt="Axis Communications">
-      <img class="equip-logo" src="verkada.png" alt="Verkada">
-      <img class="equip-logo" src="rhombus.png" alt="Rhombus">
-      <img class="equip-logo tall" src="hanwha.png" alt="Hanwha Vision">
+      <img class="equip-logo" src="axis.png" loading="lazy" alt="Axis Communications">
+      <img class="equip-logo" src="verkada.png" loading="lazy" alt="Verkada">
+      <img class="equip-logo" src="rhombus.png" loading="lazy" alt="Rhombus">
+      <img class="equip-logo tall" src="hanwha.png" loading="lazy" alt="Hanwha Vision">
     </div>
     <p class="equip-note">Working with other equipment or existing infrastructure? We can install and integrate on request.</p>
   </div>
@@ -637,12 +711,12 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <input type="hidden" name="subject" value="New Quote Request — L&M Integrations">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
-        <div class="field"><label for="fName">Name</label><input id="fName" type="text" name="name" required placeholder="Your name"></div>
+        <div class="field"><label for="fName">Name</label><input id="fName" type="text" name="name" required placeholder="Your name"><span class="field-msg">Enter your name</span></div>
         <div class="field"><label for="fCompany">Company</label><input id="fCompany" type="text" name="company" placeholder="Business name"></div>
       </div>
       <div class="form-row">
-        <div class="field"><label for="fPhone">Phone</label><input id="fPhone" type="tel" name="phone" required placeholder="(555) 555-5555"></div>
-        <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" name="email" required placeholder="you@company.com"></div>
+        <div class="field"><label for="fPhone">Phone</label><input id="fPhone" type="tel" name="phone" required placeholder="(555) 555-5555"><span class="field-msg">Enter a phone number</span></div>
+        <div class="field"><label for="fEmail">Email</label><input id="fEmail" type="email" name="email" required placeholder="you@company.com"><span class="field-msg">Enter a valid email</span></div>
       </div>
       <div class="field">
         <label for="fType">Project Type</label>
@@ -654,7 +728,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
           <option>Other / not sure yet</option>
         </select>
       </div>
-      <div class="field"><label for="fMsg">Project Details</label><textarea id="fMsg" name="message" required placeholder="Property type, approximate camera count, timeline..."></textarea></div>
+      <div class="field"><label for="fMsg">Project Details</label><textarea id="fMsg" name="message" required placeholder="Property type, approximate camera count, timeline..."></textarea><span class="field-msg">Tell us a bit about the project</span></div>
       <button type="submit" class="btn btn-orange">Send Request</button>
       <p class="form-status" id="formStatus" role="status"></p>
       <p class="form-note">We respond within one business day.</p>
@@ -667,7 +741,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="brand-logo" src="logo.png" alt="" style="margin-bottom:16px;width:74px;height:74px">
+        <img class="brand-logo" src="logo.png" alt="L&amp;M Integrations logo" style="margin-bottom:16px;width:74px;height:74px" loading="lazy">
         <div class="name">L&amp;M <b>Integrations</b></div>
         <p>Commercial low voltage contractor. IP camera systems, structured cabling, and MDF buildouts installed clean, tested, and documented across Virginia.</p>
         <div class="footer-social">
@@ -705,7 +779,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
     </div>
     <div class="footer-sep"></div>
     <div class="footer-bottom">
-      <p>© <span id="yr"></span> L&amp;M Integrations. All rights reserved.</p>
+      <p>© <span id="yr"></span> L&amp;M Integrations. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="text-decoration:underline">Terms</a></p>
       <p class="lic">[LICENSE / REGISTRATION INFO — ADD WHEN AVAILABLE]</p>
     </div>
   </div>
@@ -752,9 +826,18 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 document.getElementById('contactForm').addEventListener('submit', async function(e){
   e.preventDefault();
+  // inline validation
+  let ok = true;
+  this.querySelectorAll('input[required],textarea[required]').forEach(el=>{
+    const bad = !el.checkValidity();
+    el.classList.toggle('err', bad);
+    el.closest('.field').classList.toggle('show-err', bad);
+    if(bad) ok = false;
+  });
+  if(!ok) return;
   const status = document.getElementById('formStatus');
   const btn = this.querySelector('button[type=submit]');
-  btn.disabled = true; btn.textContent = 'Sending...';
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Sending...';
   status.className = 'form-status';
   try{
     const res = await fetch('https://api.web3forms.com/submit',{
@@ -774,6 +857,41 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
   btn.disabled = false; btn.textContent = 'Send Request';
 });
+</script>
+
+<!-- STICKY MOBILE CTA -->
+<div class="mcta" id="mcta">
+  <a href="tel:+15402201032" class="mcta-call">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg>
+    Call Now
+  </a>
+  <a href="#contact" class="mcta-quote">Get a Free Quote</a>
+</div>
+
+<!-- COOKIE / PRIVACY BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Privacy notice">
+  <p>We use privacy-friendly analytics to see how the site is used. No personal data is sold. See our <a href="privacy.html">Privacy Policy</a>.</p>
+  <button class="btn btn-orange" style="padding:10px 22px;font-size:14px" onclick="acceptCookies()">Got It</button>
+</div>
+
+<script>
+document.querySelectorAll('#contactForm input,#contactForm textarea').forEach(el=>{
+  el.addEventListener('input',()=>{ el.classList.remove('err'); el.closest('.field').classList.remove('show-err'); });
+});
+// cookie banner
+if(!localStorage.getItem('lm_consent')){
+  document.getElementById('cookieBanner').classList.add('show');
+}
+function acceptCookies(){
+  localStorage.setItem('lm_consent','1');
+  document.getElementById('cookieBanner').classList.remove('show');
+}
+// hide sticky CTA when contact section in view
+const contactSec = document.getElementById('contact');
+const mcta = document.getElementById('mcta');
+new IntersectionObserver(es=>{
+  es.forEach(e=> mcta.classList.toggle('hidden', e.isIntersecting));
+},{threshold:.15}).observe(contactSec);
 </script>
 </body>
 </html>

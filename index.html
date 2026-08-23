@@ -277,12 +277,12 @@ h2 em{font-style:normal;color:var(--orange)}
   display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
   column-gap:56px;row-gap:26px;max-width:900px;margin:0 auto;
 }
-.chip{
-  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;letter-spacing:.08em;
-  text-transform:uppercase;color:#AEBBc9;opacity:.85;
-  transition:all .25s;cursor:default;
+.equip-logo{
+  height:38px;width:auto;max-width:190px;object-fit:contain;
+  filter:grayscale(1);opacity:.6;transition:all .25s;
 }
-.chip:hover{color:var(--navy);opacity:1;transform:translateY(-2px)}
+.equip-logo.tall{height:56px}
+.equip-logo:hover{filter:none;opacity:1;transform:translateY(-2px)}
 .equip-note{margin-top:26px;font-size:13.5px;color:var(--mute)}
 
 /* ---------- QUOTE CTA ---------- */
@@ -576,12 +576,10 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <p>We install proven commercial-grade camera and network equipment, and we can work with your existing infrastructure or preferred manufacturers on request.</p>
     </div>
     <div class="equip-chips reveal d1">
-      <span class="chip">Axis</span>
-      <span class="chip">Verkada</span>
-      <span class="chip">Turing AI</span>
-      <span class="chip">Ubiquiti</span>
-      <span class="chip">Hanwha Vision</span>
-      <span class="chip">Bosch Security</span>
+      <img class="equip-logo" src="axis.png" alt="Axis Communications">
+      <img class="equip-logo" src="verkada.png" alt="Verkada">
+      <img class="equip-logo" src="rhombus.png" alt="Rhombus">
+      <img class="equip-logo tall" src="hanwha.png" alt="Hanwha Vision">
     </div>
     <p class="equip-note">Working with other equipment or existing infrastructure? We can install and integrate on request.</p>
   </div>

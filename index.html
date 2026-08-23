@@ -272,18 +272,18 @@ h2 em{font-style:normal;color:var(--orange)}
 /* ---------- EQUIPMENT ---------- */
 .equip{padding:110px 0;text-align:center}
 .equip h2{margin-bottom:16px}
-.equip > .container > p{max-width:660px;margin:0 auto 44px;color:var(--mute);font-size:17.5px}
+.equip > .container > p{max-width:660px;margin:0 auto 70px;color:var(--mute);font-size:17.5px}
 .equip-chips{
   display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
   column-gap:56px;row-gap:26px;max-width:900px;margin:0 auto;
 }
 .equip-logo{
   height:38px;width:auto;max-width:190px;object-fit:contain;
-  filter:grayscale(1);opacity:.6;transition:all .25s;
+  transition:transform .25s;
 }
 .equip-logo.tall{height:56px}
-.equip-logo:hover{filter:none;opacity:1;transform:translateY(-2px)}
-.equip-note{margin-top:26px;font-size:13.5px;color:var(--mute)}
+.equip-logo:hover{transform:translateY(-2px)}
+.equip-note{margin-top:56px;font-size:13.5px;color:var(--mute)}
 
 /* ---------- QUOTE CTA ---------- */
 .quote{

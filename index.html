@@ -151,20 +151,23 @@ h1 span{color:var(--orange)}
 .hero-ctas{display:flex;justify-content:center;gap:13px;flex-wrap:wrap}
 .hero-foot{position:relative;z-index:10;text-align:center;margin-top:76px;padding:0 24px 56px}
 .hero-foot > p{
-  font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.5);font-weight:700;margin-bottom:18px;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);font-weight:700;margin-bottom:20px;
 }
-.hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:920px;margin:0 auto}
+.hero-chips{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  column-gap:34px;row-gap:14px;max-width:920px;margin:0 auto;
+}
 .hero-chip{
-  display:inline-flex;align-items:center;gap:9px;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
-  border-radius:100px;padding:11px 20px;
-  font-size:14px;font-weight:600;color:rgba(255,255,255,.85);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  transition:all .2s;
+  position:relative;display:inline-flex;align-items:center;gap:9px;
+  font-size:13.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.8);white-space:nowrap;
 }
-.hero-chip:hover{border-color:rgba(242,106,33,.6);background:rgba(255,255,255,.09)}
-.hero-chip svg{width:15px;height:15px;stroke:var(--orange)}
+.hero-chip + .hero-chip::before{
+  content:"";position:absolute;left:-19px;top:50%;transform:translateY(-50%);
+  width:5px;height:5px;border-radius:50%;background:var(--orange);
+}
+.hero-chip svg{width:15px;height:15px;stroke:var(--orange);flex:0 0 auto}
 @keyframes fadeSlideIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 .fs1{animation:fadeSlideIn .8s ease .1s both}
 .fs2{animation:fadeSlideIn .8s ease .25s both}
@@ -386,6 +389,8 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   body{font-size:16px}
   .hero-content{padding-top:120px}
   .hero-foot{margin-top:56px}
+  .hero-chips{flex-direction:column;row-gap:12px}
+  .hero-chip + .hero-chip::before{display:none}
   .brand-text .sub{display:none}
   .intro,.about,.process,.equip,.contact{padding:76px 0}
   .quote{padding:76px 0}

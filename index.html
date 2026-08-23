@@ -210,26 +210,10 @@ h2 em{font-style:normal;color:var(--orange)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .about-visual{position:relative}
 .about-photo{
-  aspect-ratio:4/3.4;border-radius:var(--radius);overflow:hidden;position:relative;
-  background:
-    radial-gradient(circle at 70% 25%,rgba(1,141,218,.35),transparent 55%),
-    repeating-linear-gradient(0deg,#12314F 0 42px,#0E2A47 42px 84px);
-  display:grid;place-items:center;
+  display:block;width:100%;aspect-ratio:4/4.2;object-fit:cover;object-position:center 38%;
+  border-radius:var(--radius);
   box-shadow:22px 22px 0 var(--bg-soft),22px 22px 0 1px var(--line);
 }
-.about-photo .ph-note{
-  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);
-  border:1.5px dashed rgba(255,255,255,.35);border-radius:8px;padding:12px 18px;font-weight:600;
-}
-.owner-cards{
-  position:absolute;bottom:-34px;left:-24px;display:flex;gap:12px;
-}
-.owner-card{
-  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-  padding:14px 20px;box-shadow:0 14px 34px rgba(14,42,71,.14);
-}
-.owner-card .nm{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--navy);text-transform:uppercase}
-.owner-card .rl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);font-weight:700}
 .about-copy .kicker{
   display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;
   letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;
@@ -378,7 +362,6 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   .pill-nav{display:none}
   .menu-toggle{display:grid;place-items:center}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
-  .owner-cards{left:0}
   .trust-grid{grid-template-columns:1fr 1fr;gap:30px 14px}
   .steps{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -397,7 +380,6 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   .quote{padding:76px 0}
   .form{padding:26px 20px}
   .form-row{grid-template-columns:1fr}
-  .owner-cards{position:static;margin-top:18px;flex-wrap:wrap}
   .about-photo{box-shadow:none}
   .footer-grid{grid-template-columns:1fr}
 }
@@ -520,19 +502,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
 <section class="about" id="about">
   <div class="container about-grid">
     <div class="about-visual reveal">
-      <div class="about-photo">
-        <span class="ph-note">Job Site Photo Goes Here</span>
-      </div>
-      <div class="owner-cards">
-        <div class="owner-card">
-          <div class="nm">[L PARTNER NAME]</div>
-          <div class="rl">Co-Founder</div>
-        </div>
-        <div class="owner-card">
-          <div class="nm">[M PARTNER NAME]</div>
-          <div class="rl">Co-Founder</div>
-        </div>
-      </div>
+      <img class="about-photo" src="rack.jpg" alt="Managed switch and patch panel installation by L&M Integrations, cables bundled and labeled">
     </div>
     <div class="about-copy reveal d1">
       <span class="kicker">About Us</span>

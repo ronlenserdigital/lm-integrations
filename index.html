@@ -209,11 +209,40 @@ h2 em{font-style:normal;color:var(--orange)}
 .about{padding:110px 0}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .about-visual{position:relative}
-.about-photo{
-  display:block;width:100%;aspect-ratio:4/4.2;object-fit:cover;object-position:center 38%;
-  border-radius:var(--radius);
+.about-slider{
+  position:relative;width:100%;aspect-ratio:4/4.2;border-radius:var(--radius);
+  overflow:hidden;
   box-shadow:22px 22px 0 var(--bg-soft),22px 22px 0 1px var(--line);
 }
+.slider-track{
+  display:flex;height:100%;
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+}
+.slider-track img{
+  width:100%;height:100%;flex:0 0 100%;
+  object-fit:cover;object-position:center 38%;display:block;
+}
+.slider-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:5;
+  width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(8,28,49,.65);color:#fff;
+  display:grid;place-items:center;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:background .2s,transform .2s;
+}
+.slider-btn svg{width:20px;height:20px}
+.slider-btn:hover{background:var(--orange);transform:translateY(-50%) scale(1.06)}
+.slider-btn.prev{left:14px}
+.slider-btn.next{right:14px}
+.slider-dots{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:5;
+  display:flex;gap:8px;
+}
+.slider-dots .dot{
+  width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.45);
+  transition:background .2s,transform .2s;
+}
+.slider-dots .dot.on{background:#fff;transform:scale(1.25)}
 .about-copy .kicker{
   display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;
   letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;
@@ -380,7 +409,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   .quote{padding:76px 0}
   .form{padding:26px 20px}
   .form-row{grid-template-columns:1fr}
-  .about-photo{box-shadow:none}
+  .about-slider{box-shadow:none}
   .footer-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
@@ -502,7 +531,21 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
 <section class="about" id="about">
   <div class="container about-grid">
     <div class="about-visual reveal">
-      <img class="about-photo" src="rack.jpg" alt="Managed switch and patch panel installation by L&M Integrations, cables bundled and labeled">
+      <div class="about-slider" id="aboutSlider">
+        <div class="slider-track" id="sliderTrack">
+          <img src="rack.jpg" alt="Patch panel rack with labeled, combed cable runs installed by L&M Integrations">
+          <img src="switch.jpg" alt="Managed PoE switch installation with bundled and labeled cables">
+        </div>
+        <button class="slider-btn prev" aria-label="Previous photo" onclick="slideTo(-1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="slider-btn next" aria-label="Next photo" onclick="slideTo(1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <div class="slider-dots" id="sliderDots">
+          <span class="dot on"></span><span class="dot"></span>
+        </div>
+      </div>
     </div>
     <div class="about-copy reveal d1">
       <span class="kicker">About Us</span>
@@ -682,6 +725,25 @@ document.querySelectorAll('#mobileMenu a').forEach(a=>{
     document.querySelector('.menu-toggle').setAttribute('aria-expanded','false');
   });
 });
+
+let slideIdx = 0;
+const slideCount = 2;
+function slideTo(dir){
+  slideIdx = (slideIdx + dir + slideCount) % slideCount;
+  document.getElementById('sliderTrack').style.transform = 'translateX(-' + (slideIdx*100) + '%)';
+  document.querySelectorAll('#sliderDots .dot').forEach((d,i)=>d.classList.toggle('on', i===slideIdx));
+}
+(()=>{ // swipe support
+  const s = document.getElementById('aboutSlider');
+  let x0 = null;
+  s.addEventListener('touchstart', e=>{ x0 = e.touches[0].clientX; }, {passive:true});
+  s.addEventListener('touchend', e=>{
+    if(x0===null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx) > 40) slideTo(dx < 0 ? 1 : -1);
+    x0 = null;
+  }, {passive:true});
+})();
 
 const io = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });

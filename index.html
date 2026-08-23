@@ -275,6 +275,23 @@ h2 em{font-style:normal;color:var(--orange)}
 .about-copy p b{color:var(--text)}
 .about-copy .btn{margin-top:12px}
 
+/* ---------- BEFORE / AFTER ---------- */
+.ba{padding:0 0 110px}
+.ba-head{text-align:center;max-width:640px;margin:0 auto 52px}
+.ba-head p{color:var(--mute);font-size:18px;margin-top:14px}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:960px;margin:0 auto}
+.ba-card{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 44px rgba(14,42,71,.12)}
+.ba-card img{display:block;width:100%;aspect-ratio:4/4.6;object-fit:cover}
+.ba-tag{
+  position:absolute;top:16px;left:16px;z-index:2;
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;
+  letter-spacing:.12em;text-transform:uppercase;color:#fff;
+  padding:7px 16px;border-radius:100px;
+}
+.ba-tag.before{background:rgba(28,40,54,.85)}
+.ba-tag.after{background:var(--green)}
+.ba-note{text-align:center;margin-top:26px;color:var(--mute);font-size:15px}
+
 /* ---------- PROCESS ---------- */
 .process{background:var(--navy);color:#fff;padding:110px 0;position:relative;overflow:hidden}
 .process::before{
@@ -413,6 +430,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
   .pill-nav{display:none}
   .menu-toggle{display:grid;place-items:center}
   .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
+  .ba-grid{grid-template-columns:1fr}
   .trust-grid{grid-template-columns:1fr 1fr;gap:30px 14px}
   .steps{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -609,6 +627,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
         <div class="slider-track" id="sliderTrack">
           <img src="rack.jpg" alt="Patch panel rack with labeled, combed cable runs installed by L&M Integrations">
           <img src="switch.jpg" alt="Managed PoE switch installation with bundled and labeled cables" loading="lazy">
+          <img src="homerack.jpg" alt="Wall-mounted rack with NVR, PoE switch, UPS, and live 12-camera monitoring display" loading="lazy">
         </div>
         <button class="slider-btn prev" aria-label="Previous photo" onclick="slideTo(-1)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
@@ -617,7 +636,7 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
         </button>
         <div class="slider-dots" id="sliderDots">
-          <span class="dot on"></span><span class="dot"></span>
+          <span class="dot on"></span><span class="dot"></span><span class="dot"></span>
         </div>
       </div>
     </div>
@@ -628,6 +647,28 @@ footer{background:var(--navy-deep);color:#9FB3C8;padding:72px 0 0}
       <p>Because the owners are the installers, nothing gets subbed out and nothing gets rushed. The people who quote your project are the same people pulling the cable, terminating the runs, and standing behind the work after handoff.</p>
       <a href="#contact" class="btn btn-navy">Work With Us</a>
     </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba">
+  <div class="container">
+    <div class="ba-head reveal">
+      <span class="kicker" style="display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)">Real Results</span>
+      <h2>From spaghetti to <em>spec.</em></h2>
+      <p>Same cabinet. This is what a proper cleanup, re-termination, and dress-out looks like.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card reveal">
+        <span class="ba-tag before">Before</span>
+        <img src="before.jpg" alt="Network cabinet before service with tangled unlabeled cabling" loading="lazy">
+      </div>
+      <div class="ba-card reveal d1">
+        <span class="ba-tag after">After</span>
+        <img src="after.jpg" alt="Same network cabinet after L&M Integrations cleanup with combed labeled runs and dressed patch panels" loading="lazy">
+      </div>
+    </div>
+    <p class="ba-note reveal d2">Inherited a messy closet? We clean up existing installs too.</p>
   </div>
 </section>
 
@@ -801,7 +842,7 @@ document.querySelectorAll('#mobileMenu a').forEach(a=>{
 });
 
 let slideIdx = 0;
-const slideCount = 2;
+const slideCount = 3;
 function slideTo(dir){
   slideIdx = (slideIdx + dir + slideCount) % slideCount;
   document.getElementById('sliderTrack').style.transform = 'translateX(-' + (slideIdx*100) + '%)';
